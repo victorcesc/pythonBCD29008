@@ -1,0 +1,12 @@
+aluno@sj-labprog-866461:~$ mkdir bcd
+aluno@sj-labprog-866461:~$ cd bcd
+aluno@sj-labprog-866461:~/bcd$ python3 -m venv venv
+aluno@sj-labprog-866461:~/bcd$ ls
+venv
+aluno@sj-labprog-866461:~/bcd$ ls venv/
+bin  include  lib  lib64  pyvenv.cfg
+aluno@sj-labprog-866461:~/bcd$ source venv/bin/activate
+(venv) aluno@sj-labprog-866461:~/bcd$ pip install SQLAlchemy
+
+
+ gitignore.io -> python3 linux venv pycharm
