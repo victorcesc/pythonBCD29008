@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,and_,or_
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import sessionmaker
 
@@ -29,6 +29,11 @@ if __name__ == '__main__':
         print('Id: {}\t Nome: {}\t Telefone: {}'.format(linha.idContato, linha.nome, linha.telefone))
 
 
-    pessoa = session.query(Contato).filter(Contato.nome == 'lula').first()
+    pessoa = session.query(Contato).filter(and_(Contato.nome == 'Haddad',Contato.telefone == '34257345')).first()
+
+
 
     print('O telefone do {} é : {}'.format(pessoa.nome,pessoa.telefone))
+
+    # pessoa.nome = 'Haddad'
+    # session.commit()
