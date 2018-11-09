@@ -3,6 +3,7 @@
 import sqlite3
 
 if __name__ == '__main__':
+
     print("kumusta sa mundo")
     conexao = sqlite3.connect('teste.sqlite')
     cursor = conexao.cursor()

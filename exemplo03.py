@@ -26,7 +26,8 @@ if __name__ == '__main__':
     #Select * from Contato
     lista_de_pessoas = session.query(Pessoa).all()
     lista_de_telefones = session.query(Telefone).all()
-    lista_join = session.query(Pessoa).join(Telefone).all()
+    lista_join = session.query(Pessoa).join(Telefone).all() #natural join
+    #lista_join = session.query(Pessoa).join(Telefone, Pessoa.idPessoa==Telefones.idPessoa).all() inner join
 
     for linha in lista_join:
         print("Nome {}".format(linha.nome))
@@ -40,12 +41,24 @@ if __name__ == '__main__':
 
     print("-------------------------------------------------")
 
-    for linha2 in lista_de_telefones:
-        print('Id: {}\t numero: {}\t idPessoa: {}'.format(linha2.idTelefone,linha2.numero,linha2.idPessoa))
+    for linha in lista_de_telefones:
+        print('Id: {}\t numero: {}\t idPessoa: {}'.format(linha.idTelefone,linha.numero,linha.idPessoa))
    # pessoa = session.query(Contato).filter(and_(Contato.nome == 'Haddad',Contato.telefone == '34257345')).first()
 
+    print("-------------------------------------------------")
+    pessoas = session.query(Pessoa).all()
 
+    for linha in pessoas:
+        print('{}\t{}'.format(linha.idPessoa,linha.nome))
+        telefones = session.query(Telefone).filter(Telefone.idPessoa == linha.idPessoa)
+        for tel in telefones:
+            print('{}'.format(tel.numero))
 
+    print("-------------------------------------------------")
+
+    pessoas = session.query(Pessoa).filter(Pessoa.nome.ilike('J%')).all()
+    for pessoa in pessoas:
+        print('{}\t{}'.format(pessoa.idPessoa,pessoa.nome))
     #print('O telefone do {} é : {}'.format(pessoa.nome,pessoa.telefone))
 
     # pessoa.nome = 'Haddad'
