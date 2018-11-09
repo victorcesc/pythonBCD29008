@@ -32,7 +32,7 @@ end
 # unset irrelavent variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/aluno/PycharmProjects/bcd-lab05-aula-01/venv"
+set -gx VIRTUAL_ENV "/home/aluno/PycharmProjects/pythonBCD29008/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
